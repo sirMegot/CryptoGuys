@@ -1,6 +1,7 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 
-function ConnectButton() {
+function ConnectButtonComponent() {
   function connectToMetaMask() {
     if (typeof (window as any).ethereum !== 'undefined') {
       (window as any).ethereum.request({ method: 'eth_requestAccounts' });
@@ -27,6 +28,10 @@ function ConnectButton() {
     </button>
   );
 }
+
+const ConnectButton = dynamic(() => Promise.resolve(ConnectButtonComponent), {
+  ssr: false
+});
 
 export default function Page() {
   return (
