@@ -1,8 +1,8 @@
 import React from 'react';
 
 function connectToMetaMask() {
-  if (typeof window.ethereum !== 'undefined') {
-    window.ethereum.request({ method: 'eth_requestAccounts' });
+  if (typeof (window as any).ethereum !== 'undefined') {
+    (window as any).ethereum.request({ method: 'eth_requestAccounts' });
   } else {
     alert('MetaMask is not installed. Please install it to continue.');
   }
