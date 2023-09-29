@@ -2,30 +2,21 @@
 import React, { useEffect } from 'react';
 
 export default function MetaMaskButton() {
+  function connectToMetaMask() {
+    if (typeof window.ethereum !== 'undefined') {
+      window.ethereum.request({ method: 'eth_requestAccounts' });
+    } else {
+      alert('MetaMask is not installed. Please install it to continue.');
+    }
+  }
+
   useEffect(() => {
-    function connectToMetaMask() {
-      if (typeof (window as any).ethereum !== 'undefined') {
-        (window as any).ethereum.request({ method: 'eth_requestAccounts' });
-      } else {
-        alert('MetaMask is not installed. Please install it to continue.');
-      }
-    }
-
-    const button = document.getElementById('connectButton');
-    if (button) {
-      button.addEventListener('click', connectToMetaMask);
-    }
-
-    return () => {
-      if (button) {
-        button.removeEventListener('click', connectToMetaMask);
-      }
-    };
+    // Tout code à exécuter au montage du composant
   }, []);
 
   return (
     <button 
-      id="connectButton"
+      onClick={connectToMetaMask}
       style={{
         position: 'absolute',
         top: '10px',
@@ -41,5 +32,3 @@ export default function MetaMaskButton() {
     </button>
   );
 }
-
-export const __client: boolean = true;
