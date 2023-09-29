@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 
+use client;
+
 export default function Page() {
   useEffect(() => {
     function connectToMetaMask() {
