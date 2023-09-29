@@ -41,3 +41,5 @@ export default function MetaMaskButton() {
     </button>
   );
 }
+
+export const __client: boolean = true;
