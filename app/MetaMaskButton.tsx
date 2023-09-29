@@ -1,3 +1,4 @@
+// @client
 // MetaMaskButton.tsx
 import React, { useEffect } from 'react';
 
