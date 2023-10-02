@@ -12,7 +12,7 @@
     "react": "latest",
     "react-dom": "latest",
     "next": "latest",
-    "web3": "lastest"
+    "web3": "latest"
   },
   "devDependencies": {
     "typescript": "latest",
