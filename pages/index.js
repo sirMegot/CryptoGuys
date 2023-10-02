@@ -42,15 +42,15 @@ function Home() {
         <button onClick={connectToMetaMask} className="font-mono font-bold">Connect MetaMask</button>
       </p>
     </div>
-    <div className="z-10 max-w-md w-full p-6 mt-10 bg-white rounded-xl shadow-md flex flex-col items-center">
-      <h2 className="text-2xl font-bold mb-4">USDC to GDAO Swap</h2>
-      <p className="text-sm mb-4">Here you can convert your USDC to our newly minted GDAO token.</p>
+    <div className="z-10 max-w-md w-full p-6 mt-10 bg-gradient-to-b from-zinc-200 rounded-xl backdrop-blur-2xl dark:bg-zinc-800/30 flex flex-col items-center">
+      <h2 className="text-2xl font-bold text-black mb-4">USDC to GDAO Swap</h2>
+      <p className="text-sm text-black mb-4">Here you can convert your USDC to our newly minted GDAO token.</p>
       <div className="flex flex-col w-full mb-4">
-        <label className="mb-2">Amount of USDC:</label>
-        <input type="number" className="p-2 border rounded" placeholder="Enter amount" />
-      </div>
-      <button className="p-2 bg-blue-500 text-white rounded">Swap to GDAO</button>
-    </div>
+         <label className="text-black mb-2">Amount of USDC:</label>
+         <input type="number" className="p-2 border rounded" placeholder="Enter amount" />
+     </div>
+      <button className="p-2 bg-gray-500 text-black rounded">Swap to GDAO</button>
+  </div>
   </main>
 </RootLayout>
   );
