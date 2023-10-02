@@ -15,8 +15,6 @@ function RootLayout({ children }) {
 }
 
 function Home() {
-  const [showSwap, setShowSwap] = React.useState(false);
-
   function connectToMetaMask() {
     if (typeof window.ethereum !== 'undefined') {
       window.web3 = new Web3(window.ethereum);
@@ -36,26 +34,25 @@ function Home() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Welcome to the Crypto Guys app, please &nbsp;
-          <button onClick={connectToMetaMask} className="font-mono font-bold">Connect MetaMask</button>
-        </p>
-      </div>
-
-      <button onClick={() => setShowSwap(!showSwap)} className="font-mono font-bold mt-5 p-4 border border-gray-300 bg-gradient-to-b from-zinc-200 rounded-xl backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30">
-        Swap USDC to GDAO
-      </button>
-
-      {showSwap && (
-        <div className="mt-5 p-4 border border-gray-300 bg-gradient-to-b from-zinc-200 rounded-xl backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30">
-          <h2 className="font-mono font-bold mb-4">Swap USDC to GDAO</h2>
-          <p>Here, you can convert your USDC into GDAO tokens minted for this occasion.</p>
-          {/* Ici, vous pouvez ajouter le formulaire ou les composants nécessaires pour le swap */}
-        </div>
-      )}
+    <RootLayout>
+  <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
+      <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
+        Welcome to the Crypto Guys app, please &nbsp;
+        <button onClick={connectToMetaMask} className="font-mono font-bold">Connect MetaMask</button>
+      </p>
     </div>
+    <div className="z-10 max-w-md w-full p-6 mt-10 bg-white rounded-xl shadow-md flex flex-col items-center">
+      <h2 className="text-2xl font-bold mb-4">USDC to GDAO Swap</h2>
+      <p className="text-sm mb-4">Here you can convert your USDC to our newly minted GDAO token.</p>
+      <div className="flex flex-col w-full mb-4">
+        <label className="mb-2">Amount of USDC:</label>
+        <input type="number" className="p-2 border rounded" placeholder="Enter amount" />
+      </div>
+      <button className="p-2 bg-blue-500 text-white rounded">Swap to GDAO</button>
+    </div>
+  </main>
+</RootLayout>
   );
 }
 
