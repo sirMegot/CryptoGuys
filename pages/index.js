@@ -1,7 +1,6 @@
 import React from 'react';
 import Web3 from 'web3';
 import Image from 'next/image';
-import './globals.css';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
