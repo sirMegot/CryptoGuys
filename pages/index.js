@@ -1,7 +1,7 @@
 import React from 'react';
 import Web3 from 'web3';
 
-function Connect() {
+function Home() {
   function connectToMetaMask() {
     if (typeof window.ethereum !== 'undefined') {
       window.web3 = new Web3(window.ethereum);
@@ -27,4 +27,4 @@ function Connect() {
   );
 }
 
-export default Connect;
+export default Home;
